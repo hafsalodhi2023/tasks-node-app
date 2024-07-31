@@ -3,9 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+
+    <title>Create Task</title>
   </head>
   <body>
-    Helloasdfasd
+    <div class="main w-full min-h-screen bg-zinc-900">
+      <div class="form">
+        <form action="" class="p-10 text-white">
+          <input
+            class="block w-full px-5 py-2 bg-zinc-800 rounded-lg outline-none"
+            type="text"
+            placeholder="Title goes here..."
+          />
+          <textarea
+            class="block w-full h-[200px] px-5 py-2 mt-2 bg-zinc-800 rounded-lg outline-none resize-none"
+            name=""
+            id=""
+            placeholder="Write your task details here..."
+          ></textarea>
+          <input
+            class="mt-2 bg-blue-600 px-5 py-2 rounded-md outline-none"
+            type="submit"
+            value="Create task"
+          />
+        </form>
+      </div>
+      <div class="tasks"></div>
+    </div>
   </body>
 </html>

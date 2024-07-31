@@ -2,7 +2,9 @@ import express from "express";
 import debug from "debug";
 import cors from "cors";
 import dotenv from "dotenv";
+import connectMongoDB from "./config/mongodb-connection.config.js";
 dotenv.config();
+connectMongoDB();
 
 const app = express();
 const debugging = debug("development:app");
