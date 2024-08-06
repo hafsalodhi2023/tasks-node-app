@@ -8,9 +8,9 @@ const debugging = debug("development:mongodb-connection");
 const connectMongoDB = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI);
-    debugging("Connected to MongoDB");
+    debugging("The connection is successfully established with MongoDB!");
   } catch (error) {
-    debugging(error);
+    debugging(error + ".");
   }
 };
 
