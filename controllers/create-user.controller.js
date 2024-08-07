@@ -13,21 +13,35 @@ const createUser = async (req, res) => {
         success: false,
         error: true,
         message: "All fields are required!",
-        data: null,
       });
     }
 
     const emailVerification = await userModel.findOne({ email });
-    debugging(emailVerification);
 
-    res.status(201).json({
+    if (emailVerification) {
+      return res.status(400).json({
+        success: false,
+        error: true,
+        message: "Email already exists!",
+      });
+    }
+
+    const newUser = await userModel.create({
+      firstName,
+      lastName,
+      email,
+      password,
+      role: "user",
+    });
+
+    return res.status(201).json({
       success: true,
       error: false,
-      message: "User created successfully!",
-      data: null,
+      message: "New user created successfully!",
+      data: newUser,
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: true,
       message: "Internal server error!",
