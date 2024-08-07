@@ -5,14 +5,13 @@ const debugging = debug("development:controller:user:create");
 
 const createUser = async (req, res) => {
   try {
-    debugging("createUser");
     const { firstName, lastName, email, password } = req.body;
 
     if (!firstName || !lastName || !email || !password) {
       return res.status(400).json({
         success: false,
         error: true,
-        message: "All fields are required!",
+        message: "All Fields Are Required!",
       });
     }
 
@@ -22,7 +21,7 @@ const createUser = async (req, res) => {
       return res.status(400).json({
         success: false,
         error: true,
-        message: "Email already exists!",
+        message: "Email Already Exists!",
       });
     }
 
@@ -31,21 +30,20 @@ const createUser = async (req, res) => {
       lastName,
       email,
       password,
-      role: "user",
+      role: "User",
     });
 
     return res.status(201).json({
       success: true,
       error: false,
-      message: "New user created successfully!",
+      message: "New User Created Successfully!",
       data: newUser,
     });
   } catch (error) {
     return res.status(500).json({
       success: false,
       error: true,
-      message: "Internal server error!",
-      data: null,
+      message: "Internal Server Error!",
     });
   }
 };
