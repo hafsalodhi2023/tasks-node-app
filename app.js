@@ -25,5 +25,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-  debugging(`Server is running on port ${process.env.PORT}`);
+  debugging(`server is running on port ${process.env.PORT}`);
 });
