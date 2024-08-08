@@ -10,10 +10,8 @@ const createUser = async (req, res) => {
   try {
     // Log debug message for creating a new user.
     debugging("Creating a New User....");
-
     // Extract user data from request body.
     const { firstName, lastName, email, password } = req.body;
-
     // Check if all required fields are provided.
     if (!firstName || !lastName || !email || !password) {
       return res.status(400).json({
@@ -22,10 +20,8 @@ const createUser = async (req, res) => {
         message: "All Fields are Required!",
       });
     }
-
     // Check if the email already exists in the database.
     const emailVerification = await userModel.findOne({ email });
-
     // If email exists, return an error response.
     if (emailVerification) {
       return res.status(400).json({
@@ -34,7 +30,6 @@ const createUser = async (req, res) => {
         message: "Email Already Exists!",
       });
     }
-
     // Create a new user in the database.
     const newUser = await userModel.create({
       firstName,
@@ -43,10 +38,8 @@ const createUser = async (req, res) => {
       password,
       role: "User",
     });
-
     // Log debug message for successful user creation.
     debugging("New User Created Successfully!!!!");
-
     // Return success response with the new user data.
     return res.status(201).json({
       success: true,
