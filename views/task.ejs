@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+
+    <title>Task Details</title>
+  </head>
+  <body>
+    <div class="main w-full min-h-screen bg-zinc-900 p-10 text-white">
+      <a
+        href="/"
+        class="text-blue-500 inline-block mb-10 border-b border-zinc-900 hover:border-b hover:border-blue-500"
+        >Go Back to Home</a
+      >
+      <h1 class="text-4xl tracking-tighter font-medium">
+        <%= taskName.split(".txt")[0] %>
+      </h1>
+      <p class="text-xl mt-5 font-light"><%= taskDetails %></p>
+    </div>
+  </body>
+</html>

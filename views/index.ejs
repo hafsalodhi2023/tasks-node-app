@@ -11,15 +11,16 @@
   <body>
     <div class="main w-full min-h-screen bg-zinc-900">
       <div class="form">
-        <form action="" class="p-10 text-white">
+        <form action="/api/task/create" method="post" class="p-10 text-white">
           <input
             class="block w-full px-5 py-2 bg-zinc-800 rounded-lg outline-none"
             type="text"
             placeholder="Title goes here..."
+            name="title"
           />
           <textarea
             class="block w-full h-[200px] px-5 py-2 mt-2 bg-zinc-800 rounded-lg outline-none resize-none"
-            name=""
+            name="details"
             id=""
             placeholder="Write your task details here..."
           ></textarea>
@@ -30,7 +31,23 @@
           />
         </form>
       </div>
-      <div class="tasks"></div>
+      <div class="tasks flex gap-3 flex-wrap p-10">
+        <% if(files.length > 0){ %> <% files.forEach((file) => { %>
+        <div class="task min-w-72 px-3 py-4 bg-zinc-800 rounded-md">
+          <h1 class="text-white text-3xl tracking-tighter">
+            <%= file.split(".txt")[0] %>
+          </h1>
+          <a
+            href="/tasks/<%= file %>"
+            class="text-blue-500 inline-block mt-3 border-b border-zinc-800 hover:border-b hover:border-blue-500"
+            >Read More.</a
+          >
+        </div>
+
+        <% }) %> <% } else { %>
+        <h3 class="text-zinc-600">No tasks yet.</h3>
+        <% } %>
+      </div>
     </div>
   </body>
 </html>
