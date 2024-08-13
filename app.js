@@ -11,7 +11,6 @@ connectMongoDB();
 const app = express();
 const debugging = debug("development:app");
 
-import userRouter from "./routers/user.router.js";
 import taskRouter from "./routers/task.router.js";
 
 app.use(express.json());
@@ -20,7 +19,6 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(cors());
 
-app.use("/api/user", userRouter);
 app.use("/api/task", taskRouter);
 
 app.get("/", (req, res) => {
@@ -45,5 +43,5 @@ app.get("/tasks/:taskname", (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-  debugging(`server is running on port ${process.env.PORT}`);
+  debugging(`server is running at port: ${process.env.PORT}`);
 });
