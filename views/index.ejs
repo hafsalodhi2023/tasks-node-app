@@ -48,11 +48,20 @@
                 href="/edit/<%= file %>"
                 class="text-zinc-500 inline-block mt-3 border-b border-zinc-800 hover:border-b hover:border-zinc-500"
                 >Edit</a
-              ><a
-                href="/edit/<%= file %>"
-                class="text-red-500 inline-block mt-3 border-b border-zinc-800 hover:border-b hover:border-red-500"
-                >Delete</a
               >
+              <form action="/api/task/delete" method="post">
+                <input
+                  type="text"
+                  name="filename"
+                  value="<%= file %>"
+                  class="hidden"
+                />
+                <input
+                  type="submit"
+                  value="Delete"
+                  class="text-red-500 inline-block mt-3 border-b border-zinc-800 hover:border-b hover:border-red-500 cursor-pointer"
+                />
+              </form>
             </div>
           </div>
         </div>
