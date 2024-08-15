@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Task Details</title>
+  </head>
+  <body>
+    <div class="main w-full min-h-screen bg-zinc-900 p-10 text-white">
+      <a href="/" class="text-blue-500"
+        ><i class="fa-solid fa-house"></i>&nbsp;&nbsp;
+        <p
+          class="text-blue-500 inline-block mb-10 border-b border-zinc-900 hover:border-b hover:border-blue-500"
+          style="transition: 0.2s"
+        >
+          Go Back to Home
+        </p>
+      </a>
+      <form action="/api/task/edit" method="post" class="text-white">
+        <input
+          class="block w-full px-5 py-2 bg-zinc-800 rounded-lg outline-none mt-2"
+          type="text"
+          placeholder="New title goes here..."
+          name="new_title"
+        />
+        <textarea
+          class="block w-full h-[200px] px-5 py-2 mt-2 bg-zinc-800 rounded-lg outline-none resize-none mb-10"
+          name="new_details"
+          id=""
+          placeholder="Write your new task details here..."
+        ></textarea>
+        <input
+          class="block w-full px-5 py-2 bg-zinc-800 rounded-lg outline-none mt-2 text-zinc-500"
+          type="text"
+          name="previous_title"
+          value="<%= filename.split('.txt')[0] %>"
+          readonly
+        />
+        <textarea
+          class="block w-full h-[200px] px-5 py-2 mt-2 bg-zinc-800 rounded-lg outline-none resize-none text-zinc-500"
+          name="previous_details"
+          id=""
+          readonly
+        >
+<%= taskDetails %></textarea
+        >
+        <input
+          class="mt-2 bg-yellow-600 px-5 py-2 rounded-md outline-none"
+          type="submit"
+          value="Edit task"
+        />
+      </form>
+    </div>
+  </body>
+</html>

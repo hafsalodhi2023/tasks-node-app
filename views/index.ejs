@@ -37,11 +37,24 @@
           <h1 class="text-white text-3xl tracking-tighter">
             <%= file.split(".txt")[0] %>
           </h1>
-          <a
-            href="/tasks/<%= file %>"
-            class="text-blue-500 inline-block mt-3 border-b border-zinc-800 hover:border-b hover:border-blue-500"
-            >Read More.</a
-          >
+          <div class="flex justify-between mt-3">
+            <a
+              href="/tasks/<%= file %>"
+              class="text-blue-500 inline-block mt-3 border-b border-zinc-800 hover:border-b hover:border-blue-500"
+              >Read More.</a
+            >
+            <div class="flex gap-3">
+              <a
+                href="/edit/<%= file %>"
+                class="text-zinc-500 inline-block mt-3 border-b border-zinc-800 hover:border-b hover:border-zinc-500"
+                >Edit</a
+              ><a
+                href="/edit/<%= file %>"
+                class="text-red-500 inline-block mt-3 border-b border-zinc-800 hover:border-b hover:border-red-500"
+                >Delete</a
+              >
+            </div>
+          </div>
         </div>
 
         <% }) %> <% } else { %>

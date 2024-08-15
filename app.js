@@ -31,13 +31,29 @@ app.get("/", (req, res) => {
 app.get("/tasks/:taskname", (req, res) => {
   fs.readFile(`./files/${req.params.taskname}`, "utf-8", (err, data) => {
     if (err) {
-      res.status(500).json({
-        success: false,
-        error: true,
-        message: err.message,
+      return res.status(500).render("error", {
+        error: err.message,
       });
     } else {
-      res.render("task", { taskName: req.params.taskname, taskDetails: data });
+      return res.render("task", {
+        taskName: req.params.taskname,
+        taskDetails: data,
+      });
+    }
+  });
+});
+
+app.get("/edit/:filename", (req, res) => {
+  fs.readFile(`./files/${req.params.filename}`, "utf-8", (err, data) => {
+    if (err) {
+      return res.status(500).render("error", {
+        error: err.message,
+      });
+    } else {
+      return res.render("edit", {
+        filename: req.params.filename,
+        taskDetails: data,
+      });
     }
   });
 });
